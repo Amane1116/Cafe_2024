@@ -1,51 +1,133 @@
 <!DOCTYPE html>
+<html lang="zh-TW">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         眠貓咖啡屋
     </title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../CSS/normalize.css">
-    <link rel="stylesheet" href="../CSS/reservation.css">
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link rel="stylesheet" href="/CSS/reservation.css">
+    <style>
+        /* 反白選取樣式 */
+        ::selection {
+            background-color: #f9e9b5; /* 橘色背景 */
+            color: #9a802c; /* 白色文字 */
+        }
+    </style>
+
 </head>
 
-<body>
-    <header>
-        <div class="logontitle">
-            <a href="#" class="logo">
-                <img src="../images/logo 3.png" alt="logo3" width="136px" height="132px">
-            </a>
-            <h1 class="header-title">眠貓咖啡屋</h1>
-            <!-- <img src="../images/home_first.jpg" alt="home_first" width="" height=""> -->
-        </div>
-        <!-- 導覽列 -->
-        <nav class="nav">           
-            <ul type="none" class="nav-ul">                
-                <li class="nav-li"><a href="home.html" class="nav-text">Home</a></li>
-                <li class="nav-li"><a href="menu.html" class="nav-text">Menu</a></li>
-                <li class="nav-li"><a href="reservation.html" class="nav-text">Reservation</a></li>
-                <li class="nav-li"><a href="info.html" class="nav-text">Info</a></li>            
-            </ul>                    
-        </nav>
-        
-    </header>
+<body onbeforeunload="window.scrollTo(0, 0)">
+    <!-- Logo & 店名(navbar 導覽列) & first picture-->
 
-    <!-- 第一張圖&RESERVATION大標-->
-    <div class="first">
+    <!-- navbar 導覽列-->
+    <header>
+        <!-- 新版導覽列 -->
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                <img src="/images/logo b.png" alt="logo main">
+            </a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="/index.html" class="nav-text">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./menu.html" class="nav-text">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./reservation.html" class="nav-text">Reservation</a>
+                </li>
+                <li class="nav-item"><a href="./info.html" class="nav-text">Info</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- end navbar-->
+
+    <!-- reservation -->
+    <section class="first">
+        <h1 class="main-title">RESERVATION</h1>
+    </section>
+
+    <div class="main">
+        <!-- title -->
+        <div class="title-template sun-theme">
+            <h6 class="title-s">RESERVATION</h6>
+            <div class="container-headline-content">
+                <span class="common-headline-content__title">填</span>
+                <span class="common-headline-content__title">表</span>
+                <span class="common-headline-content__title">預</span>
+                <span class="common-headline-content__title">約</span>
+            </div>
+            <!-- stars & lines -->
+            <div class="stars_lines_b">
+                <img src="../images/star-b.svg" alt="star_white" class="center-image">
+            </div>
+        </div>
+        <!-- end title -->  
         
+        <!-- form -->
+        <form action="">
+            <div class="form-items">
+                <h3>姓名：</h3>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-items">
+                <h3>預約人數：</h3>
+                <input type="number" class="form-control">
+            </div>
+            <div class="form-items">
+                <h3>日期：</h3>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-items">
+                <h3>時間：</h3>
+                <input type="text" class="form-control">
+            </div>
+        </form>
     </div>
 
-    <!-- title -->
-    <!-- stars & lines -->
-    <!-- 輸入 -->
-
+    <!--start footer -->
+    <script src="../JS/home.js"></script>
     <footer>
-        <h2>copyright © 2024</h2>
+        <!-- 左側區域 -->
+        <div class="footer-left">
+            <a href="#" class="footer-logo">
+                <img src="../images/logo w.png" alt="logo main">
+            </a>
+            <p>Copyright © 2024</p>
+        </div>
+        <!-- 中間的按鈕 -->
+        <div class="footer-button-container">
+            <li class="footer-text-item">
+                <a href="#" id="backToTopBtn" class="footer-text">Home</a>
+                <script src="../JS/back-to-top.js"></script>
+            </li>
+            <li class="footer-text-item">
+                <a href="menu.html" class="footer-text">Menu</a>
+            </li>
+            <li class="footer-text-item">
+                <a href="reservation.html" class="footer-text">Reservation</a>
+            </li>
+            <li class="footer-text-item"><a href="info.html" class="footer-text">Info</a>
+            </li>
+        </div>
         <!-- icons -->
         <div class="icons">
-            <img class="fb" src="../images/facebook.png" alt="fb" width="70px" height="70px">
-            <img class="ig" src="../images/instagram_2.png" alt="ig" width="70px" height="70px">
-            <img class="mail" src="../images/mail(2)_3.png" alt="mail" width="70px" height="55px">
+            <a href="https://www.facebook.com/">
+                <img class="icon-item" src="../images/fb.svg" alt="fb" width="56px" height="56px">
+            </a>
+            <a href="https://www.instagram.com/">
+                <img class="icon-item" src="../images/ins.svg" alt="ig" width="56px" height="56px">
+            </a>
+            <a href="mailto:example@example.com">
+                <img class="icon-item" src="../images/mail.svg" alt="mail" width="56px" height="56px">
+            </a>
         </div>
     </footer>
+    <!-- end footer-->
 </body>
 </html>

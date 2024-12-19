@@ -83,6 +83,97 @@ p{
 
 
 /* ------------------------- *\ 
+    navbar 導覽列
+\* ------------------------- */
+
+/* navbar下面的小弧形 */
+.navbar::before {
+  width: 65px;
+  height: 280px;
+  position: absolute;
+  top: calc(var(--navbar-height) - 0.5px);
+  transform-origin: left top;
+  transform: scaleY(-1) rotate(-90deg);
+  filter: drop-shadow(12px 6px 6px rgba(0, 0, 0, 0.1));
+
+  display: block;
+  background-image: url(../images/gnav_bg.svg);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  content: "";
+  z-index: 1;
+}
+
+.navbar{/* 導覽列大框架 */
+  height: var(--navbar-height);/* 高度 */
+  background-color:rgba(250,247,237,1);/* 將hex色彩轉成rgba，最後一個數值為透明度 */
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  left: 0;
+  top: 0;
+  justify-content: space-between;/* logo 導覽按鈕左右分開 */
+  align-items: center;/* 居中對齊 */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);/* 陰影 */
+}
+
+/* 左側logo與title處 */
+.logo {
+  z-index: 8;
+  margin-top: 20px;
+  margin-left: 30px;
+  transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* logo圖 */
+.logo img{
+  width: var(--w-navbar);
+  height: auto;
+  padding-top: 50px;
+}
+
+/* 右邊的導覽按鈕區 */
+
+.nav{/* 右邊的導覽按鈕框架 */
+  display: block;
+  line-height: 24px;
+  padding: 20px 16px;
+  transition: color 0.3;
+  align-items: center;
+
+  padding-right: 30px;
+} 
+@media screen and (max-width: 768px) {
+.nav {
+  display: none;
+}
+}
+.nav-item{ /* 每個導覽按鈕的設定 */
+  /* 字設定 */
+  font-family: "cwTeXFangSong", serif;
+  font-size: calc( 100vw * 24 / 1920 	);;
+  /* 空間設定 */
+  align-items: center;
+  display: inline; /*對物件本身 */
+  margin-right: 30px;
+  
+} 
+.nav-text{
+  color: #443226;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+.nav-text:hover{
+  color:#6ee7ff;
+}
+.nav-text:active{
+  color:#438e9d;
+  transform: translateY(2px);
+}
+
+
+/* ------------------------- *\ 
     星星動畫
 \* ------------------------- */
 
@@ -751,96 +842,6 @@ input:checked + .scene .dayimg {
     padding: 24px 55px;
 }
 
-/* ------------------------- *\ 
-    navbar 導覽列
-\* ------------------------- */
-
-/* navbar下面的小弧形 */
-.navbar::before {
-    width: 65px;
-    height: 280px;
-    position: absolute;
-    top: calc(var(--navbar-height) - 0.5px);
-    transform-origin: left top;
-    transform: scaleY(-1) rotate(-90deg);
-    filter: drop-shadow(12px 6px 6px rgba(0, 0, 0, 0.1));
-
-    display: block;
-    background-image: url(../images/gnav_bg.svg);
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    content: "";
-    z-index: 1;
-}
-
-.navbar{/* 導覽列大框架 */
-    height: var(--navbar-height);/* 高度 */
-    background-color:rgba(250,247,237,1);/* 將hex色彩轉成rgba，最後一個數值為透明度 */
-    display: flex;
-    position: fixed;
-    z-index: 99;
-    width: 100%;
-    left: 0;
-    top: 0;
-    justify-content: space-between;/* logo 導覽按鈕左右分開 */
-    align-items: center;/* 居中對齊 */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);/* 陰影 */
-}
-
-/* 左側logo與title處 */
-.logo {
-    z-index: 8;
-    margin-top: 20px;
-    margin-left: 30px;
-    transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-/* logo圖 */
-.logo img{
-    width: var(--w-navbar);
-    height: auto;
-    padding-top: 50px;
-}
-
-/* 右邊的導覽按鈕區 */
-
-.nav{/* 右邊的導覽按鈕框架 */
-    display: block;
-    line-height: 24px;
-    padding: 20px 16px;
-    transition: color 0.3;
-    align-items: center;
-
-    padding-right: 30px;
-} 
-@media screen and (max-width: 768px) {
-	.nav {
-		display: none;
-	}
-}
-.nav-item{ /* 每個導覽按鈕的設定 */
-    /* 字設定 */
-    font-family: "cwTeXFangSong", serif;
-    font-size: calc( 100vw * 24 / 1920 	);;
-    /* 空間設定 */
-    align-items: center;
-    display: inline; /*對物件本身 */
-    margin-right: 30px;
-    
-} 
-.nav-text{
-    color: #443226;
-    padding: 20px 16px;
-    text-decoration: none;
-}
-.nav-text:hover{
-    color:#6ee7ff;
-}
-.nav-text:active{
-    color:#438e9d;
-    transform: translateY(2px);
-}
-
 
 /* ------------------------- *\ 
     body 主內容
@@ -1062,9 +1063,6 @@ input:checked + .scene .dayimg {
     margin: 0;
     gap: calc(100vw * 20 / 1920);
     background: transparent;
-}
-.specials-title{
-    margin-top:216px;
 }
 /* 重疊漂浮框-2 */
 .float-block-2{
