@@ -105,7 +105,7 @@ p{
 .first{
     /* width: 1920px; */
     height: 350px;
-    background-image: url("/images/home_first.jpg");
+    background-image: url("../images/home_first.jpg");
     background-attachment: fixed;
     background-position: bottom;
     background-size: 100%;
@@ -409,6 +409,15 @@ p{
     align-items: center;
     flex-direction: column;
     
+}
+.drops{
+  width: calc( 100vw * 200 / 1920 	); /* 圖片的寬度 */
+  min-width: 150px;
+  height: auto;           /* 自動適配高度，保持比例 */
+  display: block;         /* 讓圖片成為塊級元素，方便布局 */
+  margin-left: auto;      /* 水平置中 */
+  margin-right: auto;     /* 水平置中 */
+  margin-top: 0;          /* 置頂 */
 }
 .products {
     display: flex;

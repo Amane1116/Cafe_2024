@@ -337,7 +337,7 @@ p{
 .first{
     /* width: 1920px; */
     height: 350px;
-    background-image: url("/images/home_first.jpg");
+    background-image: url("../images/home_first.jpg");
     background-attachment: fixed;
     background-position: bottom;
     background-size: 100%;
