@@ -1176,8 +1176,8 @@ a.btn-setting-more {
 }
 ul.slides{
   position:relative;
-  width:990px;
-  height: 445px;
+  width:calc(100vw* 990 / 1920);
+  height: calc(100vw* 445 / 1920);
   list-style: none;
   margin:30px;
   padding:0;
