@@ -7,8 +7,8 @@
 *licensed
 */
 html, body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     margin: 0;
     scroll-behavior: smooth;
   }
@@ -23,7 +23,7 @@ body{
     letter-spacing: 0.06em;
     font-weight: 500;
     font-family: '微軟正黑體',arial;/* 新增字體設定 前面微軟正黑體為主要字體，後面為替補字體 */
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 /* 字體設定 */
 h1,h2{
