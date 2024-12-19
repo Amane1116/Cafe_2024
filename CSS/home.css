@@ -23,8 +23,19 @@ body{
     letter-spacing: 0.06em;
     font-weight: 500;
     font-family: '微軟正黑體',arial;/* 新增字體設定 前面微軟正黑體為主要字體，後面為替補字體 */
+    max-width: 100%;
     overflow-x: hidden;
 }
+* {
+  box-sizing: border-box; /* 確保邊框和內邊距不會使元素寬度超出容器 */
+}
+@media (max-width: 768px) {
+  body {
+    --font-size: 13px;
+    --line-height: 28px;
+  }
+}
+
 /* 字體設定 */
 h1,h2{
     /* font-family: "cwTeXFangSong", serif; */
@@ -70,6 +81,7 @@ p{
 :root {
     /* 定義變數 */
     --navbar-height: 72px;
+    --navbar-height-s: 50px;
     --w-navbar: 80px;
     
     --sunmoon-size:90px;
@@ -77,7 +89,7 @@ p{
     --first-logo-height: 62%;
     /* --first-logo-height: calc(65% - (10vw / 2)) ; */
     
-
+    --cont-resp-w: 100vw;
     --footer-text-height: 20px;
   }
 
@@ -118,6 +130,17 @@ p{
   align-items: center;/* 居中對齊 */
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);/* 陰影 */
 }
+@media screen and (max-width: 768px) {
+  .navbar{
+    height: var(--navbar-height-s);/* 高度 */
+  }
+  .navbar::before {
+    top: calc(var(--navbar-height-s) - 0.5px);
+    width: 50px;
+    height: 200px;
+  }
+}
+
 
 /* 左側logo與title處 */
 .logo {
@@ -131,6 +154,13 @@ p{
   width: var(--w-navbar);
   height: auto;
   padding-top: 50px;
+}
+@media screen and (max-width: 768px) {
+  .logo img{
+    width: calc(var(--w-navbar) - 20px);
+    height: auto;
+    padding-top: 45px;
+  }
 }
 
 /* 右邊的導覽按鈕區 */
@@ -576,7 +606,7 @@ input:checked + .scene .dayimg {
     /* 容器本身定位 */
     align-items: center; /* 水平居中 */
     justify-content: center; /* 垂直居中 */
-    gap: 2.8em; /* 控制 Logo 和標題間距 */
+    gap: 2em; /* 控制 Logo 和標題間距 */
 
     /* 內容物定位 */
     display: flex;
@@ -636,6 +666,7 @@ input:checked + .scene .dayimg {
     display: flex;
     justify-content: center;
     font-family: 'Noto Serif JP';
+    padding-top: 10px;
     gap: 1em; /* 調整標題字之間的距離 */
 }
 .common-headline__title {
@@ -647,31 +678,29 @@ input:checked + .scene .dayimg {
 }
 /* RWD-start */
 @media screen and (max-width: 768px) {
-	.common-headline__title {
-		display: none;
-	}
+	.container-headline {
+    flex-direction: column; 
+    gap: calc(var(--cont-resp-w) * 30 / 414); 
+    padding-top: 0;
+    padding-bottom: 20px;
+    top: calc(- var(--cont-resp-w) * 10 / 414);
+  }
+
+  .common-headline__title {
+    font-size: clamp(14px, calc(var(--cont-resp-w) * 30 / 414), 42px); /* 調整字體大小以適應小螢幕 */
+  }
 }
-.small-headline__title {
-  color: white;
-  font-weight: 400;
-  box-sizing: border-box;
-  margin: 0%;
-  width: 44px;
-  
-  /*  */
+
+.small-headline{
+  font-size: calc(100vw * 24 / 1920);
+  color: rgb(176, 176, 176);
 }
-@media screen and (min-width: 768px) {
-.small-headline__title {
-  display: none;
+@media screen and (max-width: 768px) {
+.small-headline {
+  font-size: clamp(12px,calc(var(--cont-resp-w) * 20 / 414), 28px);
 }
 }
 /* RWD-end */
-
-.s-text{
-    /* font-size: 24px; */
-    font-size: calc(100vw * 24 / 1920);
-    color: rgb(176, 176, 176);
-}
 
 /* .common-headline__title::before, .common-headline__title::after {
     width: calc( 100vw * 54 / 1920 	);
@@ -791,7 +820,7 @@ input:checked + .scene .dayimg {
     transition: all 0.3s;
 }
 .btn.btn-primary{
-    border: 3px solid #FBFBFB;
+    border: 2px solid #FBFBFB;
     color: white;
 }
 .btn.btn-primary:hover{
@@ -810,8 +839,15 @@ input:checked + .scene .dayimg {
 .btn.btn-lg{
   width: calc(100vw* 200 / 1920);
   height: calc(100vw* 60 / 1920);
+  font-size: calc(100vw* 24 / 1920);
 }
-
+@media screen and (max-width: 768px) {
+  .btn.btn-lg{
+    width: calc(- var(--cont-resp-w) * 300 / 414);
+    height: calc(- var(--cont-resp-w) * 100 / 414);
+    font-size: calc(- var(--cont-resp-w) * 20 / 414);
+  }
+  }
 
 /* 主要按鈕 淺色more底用 */
 .btn-setting-more{
