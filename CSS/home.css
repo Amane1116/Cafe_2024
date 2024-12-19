@@ -1302,6 +1302,8 @@ input[type="radio"]{
 
 .googlemap{
   border-radius: 8px;
+  width:calc(100vw* 800 / 1920); 
+  height:calc(100vw* 500 / 1920); 
 }
 
 
@@ -1401,6 +1403,8 @@ footer {
     align-items: center;
     display: inline; /*對物件本身 */
     margin-right: 50px;
+    width: calc( 100vw * 56 / 1920 	);
+    height: calc( 100vw * 56 / 1920 	);
 }
 @media screen and (max-width: 768px) {
 	.icon-item.mail {
