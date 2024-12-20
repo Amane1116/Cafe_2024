@@ -69,25 +69,43 @@
         </div>
         <!-- end title -->  
         
-        <!-- form -->
-        <form action="">
-            <div class="form-items">
-                <h3>姓名：</h3>
-                <input type="text" class="form-control">
-            </div>
-            <div class="form-items">
-                <h3>預約人數：</h3>
-                <input type="number" class="form-control">
-            </div>
-            <div class="form-items">
-                <h3>日期：</h3>
-                <input type="text" class="form-control">
-            </div>
-            <div class="form-items">
-                <h3>時間：</h3>
-                <input type="text" class="form-control">
-            </div>
-        </form>
+        <!-- start form -->
+        <div class="form-container">
+            <form id="reservation-form">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name" placeholder="請輸入您的姓名" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">電話</label>
+                    <input type="tel" id="phone" name="phone" placeholder="請輸入您的電話號碼" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">電子郵件</label>
+                    <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">日期</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">時間</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">人數</label>
+                    <input type="number" id="guests" name="guests" min="1" max="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">特殊需求</label>
+                    <textarea id="message" name="message" placeholder="請輸入任何特殊需求" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">送出訂位</button>
+            </form>
+        </div>
+        <script src="form.js"></script>
+        <!-- end form -->
+        
     </div>
 
     <!--start footer -->
