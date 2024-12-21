@@ -18,12 +18,14 @@ html {
   }
   
 body{
-    margin:0;
+    /* 字體設定 */
+    /* 新增字體設定 前面微軟正黑體為主要字體，後面為替補字體 */
+    font-family: '微軟正黑體',arial;
     font-size: 1.6rem;
     line-height: 3.2rem;
     letter-spacing: 0.06em;
     font-weight: 500;
-    font-family: '微軟正黑體',arial;/* 新增字體設定 前面微軟正黑體為主要字體，後面為替補字體 */
+
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -39,20 +41,19 @@ body{
 
 /* 字體設定 */
 h1,h2{
-    /* font-family: "cwTeXFangSong", serif; */
     font-family: 'Noto Serif JP';
     margin:0;
-    /* font-size:calc( 100vw * 80 / 1920 ); */
+    padding: 0;
 }
 h4,h5,h6 {
     font-family: "微軟正黑體", serif;
     font-weight: normal; /* 取消粗體 */
     margin:0;
-    /* font-size:calc( 40vw * 80 / 1920 ); */
+    padding: 0;
 }
 h1 {
   font-size:calc( 100vw * 56 / 1920 );
-  /* font-size: 56px; */
+  letter-spacing: 0.3em;
 }
 h2 {
   font-size:calc( 100vw * 44 / 1920 );
@@ -89,14 +90,14 @@ p{
     font-family: 'Noto Serif JP';
     font-weight: normal;
     margin:0;
-    font-size:calc( 100vw * 28 / 414 );
+    font-size: clamp(22px, calc(100vw * 24 / 414), 36px);
   }
   h4 {
-    font-size:calc( 100vw * 22 / 414 );
+    font-size:calc( 100vw * 20 / 414 );
   }
   
   h5 {
-    font-size:calc( 100vw * 18 / 414 );
+    font-size: clamp(16px, calc(100vw * 18 / 414), 28px);
   }
   
   h6 {
@@ -214,7 +215,7 @@ p{
   display: flex;
   position: fixed;
   z-index: 99;
-  width: 100vw;
+  width: 100%;
   left: 0;
   top: 0;
   justify-content: space-between;/* logo 導覽按鈕左右分開 */
@@ -272,7 +273,7 @@ p{
 }
 .nav-item{ /* 每個導覽按鈕的設定 */
   /* 字設定 */
-  font-family: "cwTeXFangSong", serif;
+  font-family: 'Noto Serif JP';
   font-size: calc( 100vw * 24 / 1920 	);;
   /* 空間設定 */
   align-items: center;
@@ -284,6 +285,7 @@ p{
   color: #443226;
   padding: 20px 16px;
   text-decoration: none;
+
 }
 .nav-text:hover{
   color:#6ee7ff;
@@ -292,29 +294,46 @@ p{
   color:#438e9d;
   transform: translateY(2px);
 }
+
+
      /* ------------------------- *\ 
           內容title設定 
      \* ------------------------- */
-     .title-template{
+
+    
+    .title-template{
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 0;
-      gap: calc(100vw * 20 / 1920);
+      gap: 1em;
       padding-top: 20px;
     }
+    @media screen and (max-width: 768px){
+      .title-template{
+        /* 標題字大小 */
+        gap: 1em;
+      }
+    }
+
     .container-headline-content{
       display: flex;
       justify-content: center;
       font-family: 'Noto Serif JP';
-      gap: 1em; /* 調整標題字之間的距離 */
+      gap: 1em; /* 調整標題字與字之間的距離 */
     }
     .common-headline-content__title{
       /* 標題字大小 */
-      font-size: clamp(22px,calc(100vw * 40 / 1920), 68px);
-      /* font-size: calc(100vw * 40 / 1920); */
+      /* font-size: clamp(22px,calc(100vw * 40 / 1920), 68px); */
+      font-size: calc(100vw * 60 / 1920);
       color: var(--title-color);/* 顏色 */
       font-weight: 400;
+    }
+    @media screen and (max-width: 768px){
+      .common-headline-content__title{
+        /* 標題字大小 */
+        font-size: calc(100vw * 30 / 414);
+      }
     }
     .title-s{
       color: var(--title-s-color);
@@ -454,7 +473,7 @@ p{
     width: 100%;
     padding: 10px 20px;
 }
-
+/* end title template */
 
 /* ------------------------- *\ 
     body 主內容
@@ -484,69 +503,144 @@ p{
   display: block;         /* 讓圖片成為塊級元素，方便布局 */
   margin-left: auto;      /* 水平置中 */
   margin-right: auto;     /* 水平置中 */
-  margin-top: 0;          /* 置頂 */
-}
-.products {
-    display: flex;
-    justify-content: center; /* 使 .product-intro 元素水平居中 */
-    gap: 20px; /* 讓各個產品之間有間距 */
-    margin-top: 30px;
-    padding-bottom: 100px;
-}
-@media screen and (max-width: 768px) {
-	.products{
-    flex-direction: column;
-    
-}
+  margin-top: -1px;          /* 置頂 */
 }
 
-.product-intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 360px; /* 設定每個產品的寬度 */
+/* 整個產品區域容器 */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 預設三欄 */
+  gap: 40px; /* 元素之間的間距 */
+  justify-content: center; /* 水平居中對齊 */
+  margin-top: 30px;
+  padding-bottom: 100px;
 }
-@media screen and (max-width: 768px)  {
-  .product-intro {
-    padding: 0;
-    width: 360px; /* 設定每個產品的寬度 */
+
+/* 在平板視窗時變成兩列 */
+@media screen and (max-width: 996px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr); /* 改為兩列 */
+  }
+}
+
+/* 在手機視窗時變成單列 */
+@media screen and (max-width: 768px) {
+  .products {
+    grid-template-columns: 1fr; /* 單列布局 */
   }
 }
 
 
+/* 單個產品 */
+.product-intro {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center;
+  text-align: center;
+  border-radius: 12px; /* 圓角 */
+  padding: 0 20px;
+  width: calc( 100vw * 500 / 1920 	);
+  min-width: 300px;
+}
+@media screen and (max-width: 768px) {
+  .product-intro {
+      width: calc(100vw * 350 / 414); /* 確保這是以 vw 計算 */
+  }
+}
+/* 不同顏色的背景 */
+.bg-yellow {
+  background: linear-gradient(to top,
+  rgba(247, 210, 91, 0.4) 0%, rgba(0,0, 0, 0)
+  40%); 
+}
+.bg-orange {
+  background: linear-gradient(to top,
+  rgba(247, 160, 60, 0.4) 0%, rgba(0, 0, 0, 0)
+  40%); 
+}
+.bg-pink {
+  background: linear-gradient(to top,
+  rgba(241, 184, 195, 0.4) 0%, rgba(0, 0, 0, 0)
+  40%); 
+}
+.bg-blue {
+  background: linear-gradient(to top,
+  rgba(58, 123, 191, 0.4) 0%, rgba(0, 0, 0, 0)
+  40%); 
+}
+.bg-purple {
+  background: linear-gradient(to top,
+  rgba(128, 100, 184, 0.4) 0%, rgba(0, 0, 0, 0)
+  40%); 
+}
+.bg-gray{
+  background: linear-gradient(to top,
+  rgba(149, 151, 152, 0.4) 0%, rgba(0, 0, 0, 0)
+  40%); 
+}
+
+/* 圖片容器 */
 .img-container {
-    width: calc( 100vw * 300 / 1920 	); /* 容器寬度 */
-    height:  calc( 100vw * 300 / 1920 	); /* 容器高度 */
-    overflow: hidden; /* 隱藏超出範圍的圖片 */
-    filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.3));
+  width: 100%;
+  height: 200px; /* 固定高度 */
+  overflow: hidden;
+  border-radius: 10%; /* 圓角效果 */
+  filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.2));
 }
-@media screen and (max-width: 768px)  {
+@media screen and (max-width: 768px){
   .img-container {
-    width: calc( 100vw * 350 / 414 	); /* 容器寬度 */
-    height:  calc( 100vw * 300 / 414 	); /* 容器高度 */
-}
-}
-
-.products-img-container {
-    width: 100%; /* 圖片寬度為容器寬度 */
-    height: 100%; /* 圖片高度為容器高度 */
-    object-fit: cover; /* 保持比例，並裁剪超出部分 */
-    object-position: center; /* 圖片置中顯示 */
-    border-radius: 12%; /* 圓角效果 */
-}
-
-.text-container {
-    padding: 20px 0; /* 文字容器上下內邊距 */
     width: 100%;
-}
-.text-container h3{
-    margin-top: 30px;
-}
-.text-container h5{
-    margin: 30px;
+    height: 200px; /* 固定高度 */
+  }
 }
 
+/* 圖片 */
+.products-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease-in-out; /* 添加過渡動畫，持續0.3秒 */
+}
+.products-img:hover{
+  transform: scale(1.05); /* 當鼠標懸停時，圖片放大5% */
+  /* cursor: pointer; */
+}
+
+/* 文字容器 */
+.text-container {
+  padding: 20px 10px;
+  width: 100%;
+}
+@media screen and (max-width: 768px){
+  .text-container {
+    line-height: 1.8;
+  }
+}
+
+/* font-size:calc( 100vw * 44 / 414 ); */
+.text-container h3 {
+  /* margin-top: calc(100vw * 20 / 1920); */
+}
+.text-container h5 {
+  text-align: left;
+  /* padding: 5px; */
+}
+.text-container h6 {
+  color: #e7aa00;
+}
+
+.describe-text {
+  font-style: italic; /* 確保斜體效果 */
+  text-align: center; /* 斜體文字置中 */
+  display: block; /* 獨占一行 */
+}
+.night-design{
+  color: #e6e1c7;
+}
+.day-design{
+  color: #555;
+}
 
 /* ------------------------- *\ 
     footer 頁尾
@@ -587,7 +681,7 @@ footer {
 /* 指定中間文字效果 */
 .footer-text-item{
   /* 字設定 */
-  font-family: "cwTeXFangSong", serif;
+  font-family: "Noto Serif JP", serif;
   font-size: calc( 100vw * 24 / 1920 	);
 
   /* 空間設定 */
@@ -630,6 +724,13 @@ footer {
     width: calc( 100vw * 56 / 1920 	);
     height: calc( 100vw * 56 / 1920 	);
 }
+.icon-item-fb{
+  align-items: center;
+  display: inline; /*對物件本身 */
+  margin-right: 50px;
+  width: calc( 100vw * 43 / 1920 	);
+  height: auto;
+}
 
 @media screen and (max-width: 768px) {
   footer {
@@ -656,7 +757,8 @@ footer {
   /* 中間區塊容器設定 */
   .footer-button-container {
     display: flex;
-    flex-direction: column; /* 垂直排列 */
+    /* 垂直排列 */
+    flex-direction: column; 
     align-items: center; /* 水平居中 */
     justify-content: center; /* 中心對齊 */
     gap: calc(100vw * 20 / 414); /* 按鈕間距減小 */
@@ -678,6 +780,11 @@ footer {
   /* 圖標大小調整 */
   .icon-item {
     width: calc(100vw * 50 / 414);
+    height: auto;
+    margin: 10px; /* 圖示之間的間距 */
+  }
+  .icon-item-fb {
+    width: calc(100vw * 40 / 414);
     height: auto;
     margin: 10px; /* 圖示之間的間距 */
   }
