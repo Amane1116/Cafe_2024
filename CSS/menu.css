@@ -153,7 +153,7 @@ p{
   /* width: 100%; */
   background-image: url("../images/home_first.jpg");
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   
   position: relative;
@@ -161,6 +161,7 @@ p{
   display: flex;
   justify-content: center;
   align-items: center; /* 垂直和水平置中 */
+  transform: translateX(-50%,-50%);
 }
 @media screen and (max-width: 768px) {
   .first{
@@ -470,35 +471,36 @@ p{
           width: clamp(80px,calc(100vw * 180 / 1920), 240px);
       }
     }
+    
 
-/* 咖啡色版 */
-.stars_lines_b::before{
-    width: 0;
-    height: calc(100vw* 14 / 1920);
-    display: block;
-    border-top: 2px solid #443226;
-    border-bottom: 2px solid #443226;
-    content: "";
-    animation: draw-line 2s ease-out forwards;
-}
-.stars_lines_b::after{
-    width: 0;
-    height: calc(100vw* 14 / 1920);
-    display: block;
-    border-top: 2px solid #443226;
-    border-bottom: 2px solid #443226;
-    content: "";
-    animation: draw-line 2s ease-out forwards;
-}
-.stars_lines_b {
-    color:#443226;
-    display: flex;
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-    position: relative;
-    width: 100%;
-    padding: 10px 20px;
-}
+    /* 咖啡色版 */
+    .stars_lines_b::before{
+      width: 0;
+      height: calc(100vw* 14 / 1920);
+      display: block;
+      border-top: 2px solid #443226;
+      border-bottom: 2px solid #443226;
+      content: "";
+      animation: draw-line 2s ease-out forwards;
+    }
+    .stars_lines_b::after{
+      width: 0;
+      height: calc(100vw* 14 / 1920);
+      display: block;
+      border-top: 2px solid #443226;
+      border-bottom: 2px solid #443226;
+      content: "";
+      animation: draw-line 2s ease-out forwards;
+    }
+    .stars_lines_b {
+      color:#443226;
+      display: flex;
+      align-items: center; /* 垂直居中 */
+      justify-content: center; /* 水平居中 */
+      position: relative;
+      width: 100%;
+      padding: 10px 20px;
+    }
 /* end title template */
 
 /* ------------------------- *\ 
@@ -629,7 +631,7 @@ p{
   transition: transform 0.3s ease-in-out; /* 添加過渡動畫，持續0.3秒 */
 }
 .products-img:hover{
-  transform: scale(1.05); /* 當鼠標懸停時，圖片放大5% */
+  transform: scale(1.2); /* 當鼠標懸停時，圖片放大5% */
   /* cursor: pointer; */
 }
 

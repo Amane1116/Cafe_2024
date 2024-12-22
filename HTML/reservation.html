@@ -32,15 +32,15 @@
             </a>
             <ul class="nav">
                 <li class="nav-item">
-                    <a href="../index.html" class="nav-text">Home</a>
+                    <a href="../index.html" class="nav-text">首頁</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./menu.html" class="nav-text">Menu</a>
+                    <a href="../HTML/menu.html" class="nav-text">菜單</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./reservation.html" class="nav-text">Reservation</a>
+                    <a href="../HTML/reservation.html" class="nav-text">訂位</a>
                 </li>
-                <li class="nav-item"><a href="./info.html" class="nav-text">Info</a>
+                <li class="nav-item"><a href="../HTML/info.html" class="nav-text">關於我們</a>
                 </li>
             </ul>
         </div>
@@ -49,62 +49,86 @@
 
     <!-- reservation -->
     <section class="first">
-        <h1 class="main-title">RESERVATION</h1>
+        <div class="first-content">
+            <h1 class="first-main-title">訂位</h1>
+        </div>
     </section>
 
     <div class="main">
-        <!-- title -->
-        <div class="title-template sun-theme">
-            <h6 class="title-s">RESERVATION</h6>
-            <div class="container-headline-content">
-                <span class="common-headline-content__title">填</span>
-                <span class="common-headline-content__title">表</span>
-                <span class="common-headline-content__title">預</span>
-                <span class="common-headline-content__title">約</span>
-            </div>
-            <!-- stars & lines -->
-            <div class="stars_lines_b">
-                <img src="../images/star-b.svg" alt="star_white" class="center-image">
-            </div>
+        <div class="left-content">
+            <h4>★營業時間</h4>
+            <div class="horizontal-line"></div>
+            <h6>每日營業：10:30 AM - 10:30 PM <br>
+                公休日：每週五與節假日
+                ※結束營業前30分鐘最後點單
+            </h6>
+            <br>
+            <h4>★訂位與消費規則</h4>
+            <div class="horizontal-line"></div>
+            <h6><strong>最低消費：</strong> <br>
+                每位顧客需點選至少一項餐點或飲品。 <br>
+                <strong>訂位保留時間：</strong> <br>
+                訂位將保留至預約時間後 10 分鐘。如未到場，訂位將自動取消。 <br>
+                <strong>特殊需求：</strong> <br>
+                如需特別安排（如素食選項或輪椅座位），請提前告知我們，以便為您提供更好的服務。
+            </h6>
         </div>
-        <!-- end title -->  
+
+        <div class="right-content">
+            <div class="mask-dark"></div>
+            <!-- title -->
+            <div class="title-template ">
+                <h6 class="title-s">RESERVATION</h6>
+                <div class="container-headline-content">
+                    <span class="common-headline-content__title">預</span>
+                    <span class="common-headline-content__title">約</span>
+                    <span class="common-headline-content__title">表</span>
+                    <span class="common-headline-content__title">單</span>
+                </div>
+                <!-- stars & lines -->
+                <div class="stars_lines">
+                    <img src="../images/star-w.svg" alt="star_white" class="center-image">
+                </div>
+            </div>
+            <!-- end title -->  
         
-        <!-- start form -->
-        <div class="form-container">
-            <form id="reservation-form">
-                <div class="form-group">
-                    <label for="name">姓名</label>
-                    <input type="text" id="name" name="name" placeholder="請輸入您的姓名" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">電話</label>
-                    <input type="tel" id="phone" name="phone" placeholder="請輸入您的電話號碼" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">電子郵件</label>
-                    <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">日期</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="time">時間</label>
-                    <input type="time" id="time" name="time" required>
-                </div>
-                <div class="form-group">
-                    <label for="guests">人數</label>
-                    <input type="number" id="guests" name="guests" min="1" max="20" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">特殊需求</label>
-                    <textarea id="message" name="message" placeholder="請輸入任何特殊需求" rows="4"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">送出訂位</button>
-            </form>
+            <!-- start form -->
+            <div class="form-container">
+                <form id="reservation-form">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" placeholder="請輸入您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話</label>
+                        <input type="tel" id="phone" name="phone" placeholder="請輸入您的電話號碼" required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="email">電子郵件</label>
+                        <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件" required>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="date">日期</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">時間</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">人數</label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">特殊需求</label>
+                        <textarea id="message" name="message" placeholder="請輸入任何特殊需求" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">送出訂位</button>
+                </form>
+            </div>
+            <script src="../JS/form.js"></script>
+            <!-- end form -->
         </div>
-        <script src="form.js"></script>
-        <!-- end form -->
         
     </div>
 
@@ -121,28 +145,28 @@
         <!-- 中間的按鈕 -->
         <div class="footer-button-container">
             <li class="footer-text-item">
-                <a href="#" id="backToTopBtn" class="footer-text">Home</a>
-                <script src="../JS/back-to-top.js"></script>
+                <a href="../index.html" id="backToTopBtn" class="footer-text">首頁</a>
+                <!-- <script src="JS/back-to-top.js"></script> -->
             </li>
             <li class="footer-text-item">
-                <a href="./menu.html" class="footer-text">Menu</a>
+                <a href="#" class="footer-text">菜單</a>
             </li>
             <li class="footer-text-item">
-                <a href="./reservation.html" class="footer-text">Reservation</a>
+                <a href="../HTML/reservation.html" class="footer-text">訂位</a>
             </li>
-            <li class="footer-text-item"><a href="./info.html" class="footer-text">Info</a>
+            <li class="footer-text-item"><a href="../HTML/info.html" class="footer-text">關於我們</a>
             </li>
         </div>
         <!-- icons -->
         <div class="icons">
             <a href="https://www.facebook.com/">
-                <img class="icon-item" src="../images/fb.svg" alt="fb" width="56px" height="56px">
+                <img class="icon-item-fb" src="../images/fb.svg" alt="fb" >
             </a>
             <a href="https://www.instagram.com/">
-                <img class="icon-item" src="../images/ins.svg" alt="ig" width="56px" height="56px">
+                <img class="icon-item" src="../images/ins.svg" alt="ig" >
             </a>
             <a href="mailto:example@example.com">
-                <img class="icon-item" src="../images/mail.svg" alt="mail" width="56px" height="56px">
+                <img class="icon-item" src="../images/mail.svg" alt="mail" >
             </a>
         </div>
     </footer>
