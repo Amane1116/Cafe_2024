@@ -10,6 +10,7 @@ html, body {
     width: 100vw;
     height: 100vh;
     margin: 0;
+    padding: 0;
     scroll-behavior: smooth;
   }
 html {
@@ -17,68 +18,117 @@ html {
   }
   
 body{
-    margin:0;
+    /* 字體設定 */
+    /* 新增字體設定 前面微軟正黑體為主要字體，後面為替補字體 */
+    font-family: '微軟正黑體',arial;
     font-size: 1.6rem;
     line-height: 3.2rem;
     letter-spacing: 0.06em;
     font-weight: 500;
-    font-family: '微軟正黑體',arial;/* 新增字體設定 前面微軟正黑體為主要字體，後面為替補字體 */
+
+    max-width: 100%;
     overflow-x: hidden;
 }
+* {
+  box-sizing: border-box; /* 確保邊框和內邊距不會使元素寬度超出容器 */
+}
+@media (max-width: 768px) {
+  body {
+    --font-size: 13px;
+    --line-height: 28px;
+  }
+}
+
 /* 字體設定 */
 h1,h2{
-    /* font-family: "cwTeXFangSong", serif; */
     font-family: 'Noto Serif JP';
     margin:0;
-    /* font-size:calc( 100vw * 80 / 1920 ); */
+    padding: 0;
 }
 h4,h5,h6 {
     font-family: "微軟正黑體", serif;
     font-weight: normal; /* 取消粗體 */
     margin:0;
-    /* font-size:calc( 40vw * 80 / 1920 ); */
+    padding: 0;
 }
 h1 {
   font-size:calc( 100vw * 56 / 1920 );
-  /* font-size: 56px; */
+  letter-spacing: 0.3em;
 }
 h2 {
-    font-size:calc( 100vw * 44 / 1920 );
+  font-size:calc( 100vw * 44 / 1920 );
 }
 h3{
-    font-family: 'Noto Serif JP';
-    font-weight: normal;
-    margin:0;
-    font-size:calc( 100vw * 36 / 1920 );
+  font-family: 'Noto Serif JP';
+  font-weight: normal;
+  margin:0;
+  font-size:calc( 100vw * 36 / 1920 );
 }
 h4 {
-  font-size:calc( 100vw * 24 / 1920 );
+  font-size: clamp(18px, calc(100vw * 24 / 1920), 40px);
 }
 
 h5 {
-  font-size:calc( 100vw * 20 / 1920 );
+  font-size: clamp(11px, calc(100vw * 20 / 1920), 40px);
+  /* font-size:calc( 100vw * 22 / 1920 ); */
 }
 
 h6 {
-  font-size:calc( 100vw * 18 / 1920 );
+  /* font-size:calc( 100vw * 18 / 1920 ); */
+  font-size: clamp(12px, calc(100vw * 18 / 1920), 40px);
 }
 p{
-  font-size: calc( 100vw * 14 / 1920 	);
+  font-size: clamp(12px, calc(100vw * 14 / 1920), 40px);
+}
+/* 768以下字大小 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(28px, calc(100vw * 36 / 414), 42px);
+    /* font-size: 56px; */
+  }
+  h2 {
+    font-size: clamp(24px, calc(100vw * 28 / 414), 40px);
+  }
+  h3{
+    font-family: 'Noto Serif JP';
+    font-weight: normal;
+    margin:0;
+    font-size: clamp(22px, calc(100vw * 24 / 414), 36px);
+  }
+  h4 {
+    font-size: clamp(14px, calc(100vw * 20 / 414), 22px);
+  }
+  
+  h5 {
+    font-size: clamp(16px, calc(100vw * 18 / 414), 28px);
+  }
+  
+  h6 {
+    font-size: clamp(10px, calc(100vw * 14 / 414), 18px);
+  }
+  p{
+    font-size: clamp(10px, calc(100vw * 12 / 414), 16px)
+  }
 }
 
 /* 變數管理 */
 :root {
     /* 定義變數 */
     --navbar-height: 72px;
+    --navbar-height-s: 50px;
     --w-navbar: 80px;
     
     --sunmoon-size:90px;
-    --sunmoon-height: 23%;
+    --sunmoon-height: 21%;
     --first-logo-height: 62%;
     /* --first-logo-height: calc(65% - (10vw / 2)) ; */
     
-
+    --cont-resp-w: 100vw;
     --footer-text-height: 20px;
+
+    /* 標題預設顏色 */
+    --title-color: white;
+    --title-s-color: #F2E7C9;
 }
 
 
@@ -88,96 +138,107 @@ p{
 
 /* navbar下面的小弧形 */
 .navbar::before {
-    width: 65px;
-    height: 280px;
-    position: absolute;
-    top: calc(var(--navbar-height) - 0.5px);
-    transform-origin: left top;
-    transform: scaleY(-1) rotate(-90deg);
-    filter: drop-shadow(12px 6px 6px rgba(0, 0, 0, 0.1));
+  width: 65px;
+  height: 280px;
+  position: absolute;
+  top: calc(var(--navbar-height) - 0.5px);
+  transform-origin: left top;
+  transform: scaleY(-1) rotate(-90deg);
+  filter: drop-shadow(12px 6px 6px rgba(0, 0, 0, 0.1));
 
-    display: block;
-    background-image: url(../images/gnav_bg.svg);
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    content: "";
-    z-index: 1;
+  display: block;
+  background-image: url(../images/gnav_bg.svg);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  content: "";
+  z-index: 1;
 }
 
 .navbar{/* 導覽列大框架 */
-    height: var(--navbar-height);/* 高度 */
-    background-color:rgba(250,247,237,1);/* 將hex色彩轉成rgba，最後一個數值為透明度 */
-    display: flex;
-    position: fixed;
-    z-index: 99;
-    width: 100%;
-    left: 0;
-    top: 0;
-    justify-content: space-between;/* logo 導覽按鈕左右分開 */
-    align-items: center;/* 居中對齊 */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);/* 陰影 */
+  height: var(--navbar-height);/* 高度 */
+  background-color:rgba(250,247,237,1);/* 將hex色彩轉成rgba，最後一個數值為透明度 */
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  left: 0;
+  top: 0;
+  justify-content: space-between;/* logo 導覽按鈕左右分開 */
+  align-items: center;/* 居中對齊 */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);/* 陰影 */
 }
+@media screen and (max-width: 768px) {
+  .navbar{
+    height: var(--navbar-height-s);/* 高度 */
+  }
+  .navbar::before {
+    top: calc(var(--navbar-height-s) - 0.5px);
+    width: 50px;
+    height: 200px;
+  }
+}
+
 
 /* 左側logo與title處 */
 .logo {
-    z-index: 8;
-    margin-top: 20px;
-    margin-left: 30px;
-    transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.logontitle{/* logo & title */
-    display: flex;
-    align-items: center;
+  z-index: 8;
+  margin-top: 20px;
+  margin-left: 30px;
+  transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 /* logo圖 */
 .logo img{
-    width: var(--w-navbar);
-    height: auto;
-    padding-top: 50px;
+  width: var(--w-navbar);
+  height: auto;
+  padding-top: 50px;
 }
-.header-title{
-    margin:0;
-    margin-left: 10px;
-    color: #443226;
-    font-family: "cwTeXFangSong", serif;
-    font-size: calc( 35vw * 100 / 1920 	);
-    font-weight: 400;
+@media screen and (max-width: 768px) {
+  .logo img{
+    width: calc(var(--w-navbar) - 20px);
+    height: auto;
+    padding-top: 45px;
+  }
 }
 
 /* 右邊的導覽按鈕區 */
 
 .nav{/* 右邊的導覽按鈕框架 */
-    display: block;
-    line-height: 24px;
-    padding: 20px 16px;
-    transition: color 0.3;
-    align-items: center;
+  display: block;
+  line-height: 24px;
+  padding: 20px 16px;
+  transition: color 0.3;
+  align-items: center;
 
-    padding-right: 30px;
+  padding-right: 30px;
 } 
+@media screen and (max-width: 768px) {
+.nav {
+  display: none;
+}
+}
 .nav-item{ /* 每個導覽按鈕的設定 */
-    /* 字設定 */
-    font-family: "cwTeXFangSong", serif;
-    font-size: calc( 100vw * 24 / 1920 	);;
-    /* 空間設定 */
-    align-items: center;
-    display: inline; /*對物件本身 */
-    margin-right: 30px;
-    
+  /* 字設定 */
+  font-family: 'Noto Serif JP';
+  font-size: calc( 100vw * 24 / 1920 	);;
+  /* 空間設定 */
+  align-items: center;
+  display: inline; /*對物件本身 */
+  margin-right: 30px;
+  
 } 
 .nav-text{
-    color: #443226;
-    padding: 20px 16px;
-    text-decoration: none;
+  color: #443226;
+  padding: 20px 16px;
+  text-decoration: none;
+
 }
 .nav-text:hover{
-    color:#6ee7ff;
+  color:#6ee7ff;
 }
 .nav-text:active{
-    color:#438e9d;
-    transform: translateY(2px);
+  color:#438e9d;
+  transform: translateY(2px);
 }
      /* ------------------------- *\ 
           內容title設定 

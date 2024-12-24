@@ -1362,13 +1362,13 @@ input[type="radio"]{
 
 
 .map{
-    color:#ffffff;
-    background-color: #022961;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: calc(100vw* 80 / 1920);
-    padding-bottom: calc(100vw* 160 / 1920);
+  color:#ffffff;
+  background-color: #022961;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(100vw* 80 / 1920);
+  padding-bottom: calc(100vw* 160 / 1920);
 }
 .contactngoogle{
     display: flex;
@@ -1411,6 +1411,7 @@ input[type="radio"]{
 }
 
 .googlemap{
+  color: #04172A;
   border-radius: 8px;
   width:calc(100vw* 800 / 1920); 
   height:calc(100vw* 500 / 1920); 
