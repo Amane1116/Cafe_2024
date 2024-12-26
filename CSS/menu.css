@@ -12,6 +12,7 @@ html, body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    
   }
 html {
     font-size: 62.5%;
@@ -320,6 +321,154 @@ p{
 .nav-text:active{
   color:#438e9d;
   transform: translateY(2px);
+}
+
+/* ------------------------- *\ 
+    漢堡選單
+\* ------------------------- */
+.ham {
+  position: fixed; 
+    top: 50%; 
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex; 
+    
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+
+  overflow-x: hidden;
+  
+  /* background: rgba(0,0,0,.3); */
+  /* display: block;
+  position: relative; */
+
+/* 
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%); */
+  /* 空間設定 */
+
+}
+@media screen and (min-width: 767px) {
+	.ham {
+		display: none;
+	}
+}
+.ham-origin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.ham-bar {
+  height: 2px;
+  width: 26px;
+  position: absolute;
+  background: black;
+  margin: -1px 0 0 -13px;
+  transition: all .5s;
+}
+
+.ham-bar--top {
+  transform: translateY(-6px);
+}
+
+.ham-bar--bottom {
+  transform: translateY(6px);
+}
+
+#nav-toggle {
+  display: none;
+}
+
+#nav-toggle:checked ~ .ham .ham-bar--middle {
+  opacity: 0;
+}
+
+#nav-toggle:checked ~ .ham .ham-bar--top {
+  transform: rotate(-45deg);
+}
+
+#nav-toggle:checked ~ .ham .ham-bar--bottom {
+  transform: rotate(45deg);
+}
+
+/* Nav Style */
+
+.menu {
+  position: fixed; /* 選單固定在視窗內 */
+  top: var(--navbar-height-s); /* 從 navbar 的底部開始 */
+  right: 0;
+  bottom: 0;
+  
+  background: rgba(0, 0, 0, 0.85);
+  border-top-left-radius: 99px;
+  transition: transform 0.5s ease;
+  overflow: hidden; /* 避免內容超出 */
+  padding: 2rem;
+  /* 空間設定 */
+  width: 70%;
+  height: 100vh; 
+  transform: translateX(100%); 
+  /* 初始隱藏狀態 */
+
+  /* width: 70%; 
+  max-width: calc(100% - 20px);
+  transform: translateX(100%); */
+}
+@media screen and (min-width: 767px) {
+	.menu {
+		display: none;
+	}
+}
+#nav-toggle:checked ~ .menu {
+    transform: translateX(0); /* 顯示選單 */
+  }
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  display: flex; /* 使用 flexbox */
+  flex-direction: column; /* 垂直排列按鈕 */
+  align-items: left; /* 垂直方向水平居中 */
+  gap: 30px; /* 按鈕之間的距離 */
+}
+
+.menu-item + .menu-item {
+  margin-top: 20px;
+}
+
+/* .menu-link {
+  text-decoration: none;
+  color: white;
+} */
+.menu-item{
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 0.5rem;
+
+  font-size: clamp(24px, calc(100vw * 28 / 414), 40px);
+}
+/* .menu-item:hover {
+  background-color: rgb(110, 231, 255,0.3);
+} */
+.menu-item:active{
+  background-color: rgb(110, 231, 255,0.3);
+}
+.hambar-icons{
+  margin-top: 30px;
+}
+.hambar-icons a{
+  /* 修icon連結的小bug */
+  color: transparent;
 }
 
 

@@ -12,7 +12,7 @@ titles.forEach((title) => {
         scrollTrigger: {
         trigger: title,
         start: "top 75%", // 區塊進入視窗 25% 處觸發
-        end: "bottom 25%", // 滾動到區塊底部 25% 時結束觸發
+        end: "bottom 30%", // 滾動到區塊底部 25% 時結束觸發
         toggleActions: "play none none none", // 只播放一次動畫
         },
         opacity: 0, // 初始透明度

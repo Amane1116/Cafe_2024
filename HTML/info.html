@@ -46,16 +46,55 @@
                 <li class="nav-item"><a href="../HTML/info.html" class="nav-text">關於我們</a>
                 </li>
             </ul>
+            <!-- 漢堡選單 start-->
+            <input id="nav-toggle" type="checkbox">
+                <label for="nav-toggle" class="ham">
+                    <div class="ham-origin">
+                        <div class="ham-bar ham-bar--top"></div>
+                        <div class="ham-bar ham-bar--middle"></div>
+                        <div class="ham-bar ham-bar--bottom"></div>
+                    </div>
+                </label>
+
+                <div class="menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="../index.html" id="backToTopBtn" class="footer-text">首頁</a>
+                            <!-- <script src="JS/back-to-top.js"></script> -->
+                        </li>
+                        <li class="menu-item">
+                            <a href="../HTML/menu.html" class="footer-text">菜單</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="../HTML/reservation.html" class="footer-text">訂位</a>
+                        </li>
+                        <li class="menu-item"><a href="../HTML/info.html" class="footer-text">關於我們</a>
+                        </li>
+                    </ul>
+                    <div class="icons">
+                        <a href="https://www.facebook.com/">
+                            <img class="icon-item-fb" src="../images/fb.svg" alt="fb" >
+                        </a>
+                        <a href="https://www.instagram.com/">
+                            <img class="icon-item" src="../images/ins.svg" alt="ig" >
+                        </a>
+                        <a href="mailto:example@example.com">
+                            <img class="icon-item" src="../images/mail.svg" alt="mail" >
+                        </a>
+                    </div>
+                </div>
+            </input>
+            <!-- 漢堡選單 end-->
         </div>
     </header>
     <!-- end navbar-->
 
     <!-- 唱片 -->
-     <div class="cd-animation">
+    <div class="cd-animation">
         <canvas id="mycanvas"></canvas>
         <img src="../images/Mask group.png"/><img>
         <audio id="musicBg" src="https://awiclass.monoame.com/audio/ea0410353.mp3" loop="loop"></audio>
-     </div>
+    </div>
     
     <!-- 唱片 end -->
 
@@ -82,6 +121,7 @@
             <span class="animate-text">讓您放慢腳步，享受屬於自己的片刻寧靜。</span>
             <span class="animate-text">在這裡，每一杯咖啡都經過精心手工沖煮，</span>
             <span class="animate-text">為您帶來不僅是味覺的享受，還有心靈的平靜。</span>
+            <span class="animate-text hint">← 轉動圓盤，享受您自己的步調–––––––––★</span>
         </div>
         <script>
             window.addEventListener("DOMContentLoaded", () => {

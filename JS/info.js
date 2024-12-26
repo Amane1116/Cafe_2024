@@ -17,7 +17,7 @@ var cdw=(viewportWidth * 200) / 1920;
 var cdh = (window.innerHeight / 2) + 50;
 
 //cd圖片讀取html中img標籤的第幾個
-var cdimgnum=1;
+var cdimgnum=4;
 
 //控制
 var controls = {
@@ -151,7 +151,11 @@ class CD {
     //畫上圖片
     let img = $("img");
     ctx.globalCompositeOperation = "color-burn";
+    if (ww > 768) {
     ctx.drawImage(img[cdimgnum], -this.r * 0.65, -200,400,400);
+    }else{
+      ctx.drawImage(img[cdimgnum], -this.r * 0.55, -200,400,400);
+    }
     ctx.globalCompositeOperation = "source-over";
 
     //金色線條
@@ -324,3 +328,4 @@ function mousedown(evt) {
   mousePosDown = mousePos.clone();
   player.play();
 }
+

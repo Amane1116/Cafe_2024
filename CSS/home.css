@@ -243,6 +243,154 @@ p{
 
 
 /* ------------------------- *\ 
+    漢堡選單
+\* ------------------------- */
+.ham {
+  position: fixed; 
+    top: 50%; 
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex; 
+    
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+
+  overflow-x: hidden;
+  
+  /* background: rgba(0,0,0,.3); */
+  /* display: block;
+  position: relative; */
+
+/* 
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%); */
+  /* 空間設定 */
+
+}
+@media screen and (min-width: 767px) {
+	.ham {
+		display: none;
+	}
+}
+.ham-origin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.ham-bar {
+  height: 2px;
+  width: 26px;
+  position: absolute;
+  background: black;
+  margin: -1px 0 0 -13px;
+  transition: all .5s;
+}
+
+.ham-bar--top {
+  transform: translateY(-6px);
+}
+
+.ham-bar--bottom {
+  transform: translateY(6px);
+}
+
+#nav-toggle {
+  display: none;
+}
+
+#nav-toggle:checked ~ .ham .ham-bar--middle {
+  opacity: 0;
+}
+
+#nav-toggle:checked ~ .ham .ham-bar--top {
+  transform: rotate(-45deg);
+}
+
+#nav-toggle:checked ~ .ham .ham-bar--bottom {
+  transform: rotate(45deg);
+}
+
+/* Nav Style */
+
+.menu {
+  position: fixed; /* 選單固定在視窗內 */
+  top: var(--navbar-height-s); /* 從 navbar 的底部開始 */
+  right: 0;
+  bottom: 0;
+  
+  background: rgba(0, 0, 0, 0.85);
+  border-top-left-radius: 99px;
+  transition: transform 0.5s ease;
+  overflow: hidden; /* 避免內容超出 */
+  padding: 2rem;
+  /* 空間設定 */
+  width: 70%;
+  height: 100vh; 
+  transform: translateX(100%); 
+  /* 初始隱藏狀態 */
+
+  /* width: 70%; 
+  max-width: calc(100% - 20px);
+  transform: translateX(100%); */
+}
+@media screen and (min-width: 767px) {
+	.menu {
+		display: none;
+	}
+}
+#nav-toggle:checked ~ .menu {
+    transform: translateX(0); /* 顯示選單 */
+  }
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  display: flex; /* 使用 flexbox */
+  flex-direction: column; /* 垂直排列按鈕 */
+  align-items: left; /* 垂直方向水平居中 */
+  gap: 30px; /* 按鈕之間的距離 */
+}
+
+.menu-item + .menu-item {
+  margin-top: 20px;
+}
+
+/* .menu-link {
+  text-decoration: none;
+  color: white;
+} */
+.menu-item{
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 0.5rem;
+
+  font-size: clamp(24px, calc(100vw * 28 / 414), 40px);
+}
+/* .menu-item:hover {
+  background-color: rgb(110, 231, 255,0.3);
+} */
+.menu-item:active{
+  background-color: rgb(110, 231, 255,0.3);
+}
+.hambar-icons{
+  margin-top: 30px;
+}
+.hambar-icons a{
+  /* 修icon連結的小bug */
+  color: transparent;
+}
+
+/* ------------------------- *\ 
     星星動畫
 \* ------------------------- */
 
@@ -844,51 +992,52 @@ input:checked + .scene .dayimg {
 
 /* 主要按鈕 深色底用 */
 .btn{
-    display: flex;
-    vertical-align: top;
-    justify-content: center; /* 水平置中 */
-    align-items: center;    /* 垂直置中 */
-    /* 文字設定 */
-    text-decoration:none;
-    color: white;
-    /* font-size: 34px; */
-    /* 空間設定 */
-    line-height: 24px;
-    border-radius: 100px;
-    /* 其他設定 */
-    transition: all 0.3s;
+  display: flex;
+  vertical-align: top;
+  justify-content: center; /* 水平置中 */
+  align-items: center;    /* 垂直置中 */
+  /* 文字設定 */
+  text-decoration:none;
+  /* font-size: 34px; */
+  /* 空間設定 */
+  line-height: 24px;
+  border-radius: 100px;
+  /* 其他設定 */
+  transition: all 0.3s;
 }
 .btn.btn-primary{
-    border: 2px solid #FBFBFB;
-    color: white;
+  border: 2px solid #f9e9b5;
+  color: #5c3b13;
+  background-color: #f9e9b5;
 }
 .btn.btn-primary:hover{
-    border-radius: 100px;
-    /* font-size: 34px; */
-    background-color: #FBFBFB;
-    border: 2px solid #FBFBFB;
-    color: #022961;
-    transform: translateY(-2px);
+  border-radius: 100px;
+  /* font-size: 34px; */
+  background-color:transparent;
+  border: 2px solid #f9e9b5;
+  color: white;
+  transform: translateY(-2px);
 }
 .btn.btn-primary:active {
-    background-color: #b5b6bc; /* 被按下時改變背景顏色 */
-    border: 2px solid #FBFBFB;
-    transform: translateY(2px); /* 向下移動 */
+  color: #5c3b13;
+  background-color: #f7d76b; /* 被按下時改變背景顏色 */
+  border: 2px solid #f7d76b;
+  transform: translateY(2px); /* 向下移動 */
 }
 /* 訂位區按鈕大小 設定 */
 .btn.btn-lg{
-  width: calc(100vw* 200 / 1920);
-  height: calc(100vw* 60 / 1920);
-  font-size: calc(100vw* 24 / 1920);
+width: calc(100vw* 200 / 1920);
+height: calc(100vw* 60 / 1920);
+font-size: calc(100vw* 24 / 1920);
 }
 @media screen and (max-width: 768px) {
-  .btn.btn-lg{
-    /* width: calc(- var(--cont-resp-w) * 300 / 414); */
-    width: clamp(48px, calc(var(--cont-resp-w) * 100 / 414), 1000px);
-    height: clamp(48px,calc(100vw * 48 / 414), 100px);
-    font-size: calc(var(--cont-resp-w) * 16 / 414);
-  }
-  }
+.btn.btn-lg{
+  /* width: calc(- var(--cont-resp-w) * 300 / 414); */
+  width: clamp(48px, calc(var(--cont-resp-w) * 100 / 414), 1000px);
+  height: clamp(48px,calc(100vw * 48 / 414), 100px);
+  font-size: calc(var(--cont-resp-w) * 16 / 414);
+}
+}
 
 /* 主要按鈕 淺色more底用 */
 .btn-setting-more{
@@ -928,6 +1077,14 @@ input:checked + .scene .dayimg {
   width: calc(100vw* 150 / 1920);
   height: calc(100vw* 64 / 1920);
 }
+@media screen and (max-width: 768px) {
+  .btn-setting-more.btn-moresize{
+    /* width: calc(- var(--cont-resp-w) * 300 / 414); */
+    width: clamp(48px, calc(var(--cont-resp-w) * 100 / 414), 1000px);
+    height: clamp(48px,calc(100vw * 48 / 414), 100px);
+    font-size: calc(var(--cont-resp-w) * 16 / 414);
+  }
+  }
 
 
      /* ------------------------- *\ 
@@ -1106,91 +1263,107 @@ input:checked + .scene .dayimg {
       \* ------------------------- */
 
 
-.about-specials{
+      .about-specials{
 
-  /* 背景設定 */
-    background-image: url("../images/milkyway_about_specials.jpg");
-    
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #022961;
-    min-height: 100vh;
-
-  /* 字體設定 */
-  line-height: 3.2rem;
-
-  /* 空間設定 */
-  padding-bottom: 120px;
-}
-.about{
-  color:#ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: calc(100vw* 160 / 1920);
-}
-.about-img{
-  overflow: hidden;
-  margin-top: 30px;
-  border-radius: 18px;
-  margin-bottom: calc(-100vw * 20 / 100); /*  for 漂浮框-1 */
-}
-/* .about-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 99; 
-  pointer-events: none; 
-} */
-@media screen and (max-width:768px){
-  .about-img{
-    width:80%;
-    height:auto;
-    margin-bottom: 0;
-}
-}
-
-    /* 重疊漂浮框-1 */
-
-    .float-block-1{
-      position: relative;
-      left:20%;    
-      box-sizing: border-box;
-      width:33%;
-      height: auto;
-      padding: 45px;
-      background-color: #ffffff;
-      color: #494646;
-      border-radius: 8px;
-    }
-    .float-block-1 h6{
-      margin-top: 30px;
-    }
-    @media screen and (max-width: 768px) {
-      .float-block-1 {
-          position: static; /* 取消浮動樣式，直接按文檔流排列 */
-          width: 85%; /* 調整寬度適應小螢幕 */
-           /* 上下留白，並水平置中 */
-          margin: 10px auto;
-          padding: 20px; /* 縮小內邊距，適合小螢幕 */
-          background-color: transparent;
-          color: white;
+        /* 背景設定 */
+        background-image: url("../images/milkyway_about_specials.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #022961;
+        min-height: auto; /* 根據內容自動調整 */
+        line-height: 3.2rem;
+        padding-bottom: 20px; /* 如果多餘，移除多餘空間 */
       }
-  
-      .float-block-1 h3 {
-          font-size: 1.8rem; /* 可選：縮小標題字體 */
+      .about{
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: calc(100vw * 160 / 1920);
+        padding-bottom: calc(100vw * 160 / 1920);
+        min-height: auto; /* 讓高度自動適應內容 */
       }
-  
-      .float-block-1 h6 {
-          font-size: 1.4rem; /* 可選：縮小段落字體 */
-          line-height: 1.6;
+      
+      .about-intro {
+        position: relative;
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 0; /* 移除負邊距 */
       }
-  }
+      .about-img{
+        
+        width: 100%; /* 使圖片自適應寬度 */
+        height: auto; /* 保持圖片比例 */
+        max-width: calc(100vw* 1300 / 1920); /* 設置圖片最大寬度 */
+        margin: 0 auto; /* 水平置中圖片 */
+        display: block; /* 去除圖片底部空隙 */
+        border-radius: 18px;
+      
+        overflow: hidden;
+      }
+      
+      @media screen and (max-width:768px){
+        .about{
+          height: auto;
+        }
+        .about-img{
+          width:80%;
+          height:auto;
+          margin-bottom: 0;
+      }
+      }
+      
+          /* 重疊漂浮框-1 */
+      
+          .float-block-1{
+            box-sizing: border-box;
+            width: calc(100vw * 600 / 1920);
+            max-height: 400px;
+            padding: 45px;
+            background-color: #ffffff;
+            color: #494646;
+            border-radius: 8px;
+        
+            position: absolute;
+            bottom: -10%; /* 調整與圖片底部的距離 */
+            left: 70%;
+            transform: translateX(-50%);
+          }
+      
+      
+      
+          .float-block-1 h6{
+            margin-top: calc(100vw* 30 / 1920);
+          }
+          @media screen and (max-width: 768px) {
+            .float-block-1 {
+                position: static; /* 取消浮動樣式，直接按文檔流排列 */
+                width: 85%; /* 調整寬度適應小螢幕 */
+                 /* 上下留白，並水平置中 */
+                margin: 10px auto;
+                padding: 20px; /* 縮小內邊距，適合小螢幕 */
+                background-color: transparent;
+                color: white;
+                min-width: calc(100vw* 500 / 768);
+      
+                transform: translateX(0);
+            }
+        
+            .float-block-1 h3 {
+                font-size: 1.8rem; /* 可選：縮小標題字體 */
+            }
+        
+            .float-block-1 h6 {
+                font-size: 1.4rem; /* 可選：縮小段落字體 */
+                line-height: 1.6;
+            }
+        }
+        @media screen and (max-width: 1180px) {
+          .float-block-1 {
+            width:calc(100vw* 800 / 1920);
+          }
+        }
 
 
     /* ------------------------- *\ 
@@ -1198,128 +1371,125 @@ input:checked + .scene .dayimg {
     \* ------------------------- */
 
 
-.specials{
-    padding-top: calc(100vw* 160 / 1920);
-    color:#ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    gap: calc(100vw * 20 / 1920);
-    background: transparent;
-}
-@media screen and (max-width: 768px) {
-  .specials {
-    padding-top: calc(100vw* 20 / 414);
-  }   
+    .specials {
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      gap: calc(100vw * 20 / 1920);
+      background: transparent;
+      padding-bottom: calc(100vw * 180 / 1920);
   }
-/* 重疊漂浮框-2 */
-.float-block-2{
-  position: relative;
-  right:22%;    
-  box-sizing: border-box;
-  width:33%;
-  height: auto;
-  padding:40px;
-  background-color: #ffffff;
-  color: #494646;
+  
+  @media screen and (max-width: 768px) {
+      .specials {
+          padding-top: calc(100vw * 20 / 414);
+      }
+  }
+  
+ /* 外層容器，提供定位基準 */
+.carousel-container {
+  position: relative; /* 讓 .float-block-2 可以定位 */
+  width: calc(100% * 1300 / 1920);
+  margin-top: 10px;
+
   border-radius: 8px;
 }
-.float-block-2 h4{
-  margin-top: 30px;
+
+/* 輪播容器 */
+.carousel {
+  width: 100%;
+  display: flex; /* 保證圖片橫向排列 */
+  overflow: hidden; /* 防止圖片溢出容器 */
+  border-radius: 2rem;
 }
-a.btn-setting-more {
-  float: right;
+
+/* 單個輪播項目 */
+.carousel-items {
+  flex: 0 0 100%; /* 確保每個項目佔據 100% 寬度 */
+  box-sizing: border-box; /* 確保邊框和填充不影響寬度 */
+  margin: 0; /* 避免不必要的間距 */
+  padding: 0; /* 避免內邊距 */
 }
+
+/* 輪播圖片 */
+.carousel img {
+  display: block; /* 移除圖片底部空隙 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 確保圖片填滿容器 */
+  border-radius: 8px;
+}
+
 @media screen and (max-width: 768px) {
-.float-block-2 {
-      display: none;
-}   
-}
-.float-block-2 div h4{
-  margin-bottom: 20px;
+  .carousel {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+  }
 
+  .carousel img {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
 }
-/* 下面是輪播 */
-.slide{
-  width:calc(100vw* 990 / 1920);
-  height: calc(100vw* 445 / 1920);
+  
+  /* 漂浮文字框 */
+  .float-block-2 {
+      position: absolute; /* 定位在父容器 .carousel-container 上 */
+      top: 90%; /* 根據需要調整位置 */
+      left: 15%; /* 水平位置調整 */
+      transform: translate(-50%, -50%); /* 垂直與水平置中 */
+      box-sizing: border-box;
+      width: 40%;
+      height: auto;
+      padding: 20px 30px;
+      background-color: #ffffff;
+      color: #494646;
+      border-radius: 8px;
+      z-index: 10; /* 確保文字框位於輪播牆上方 */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+  }
+  
+  /* 文字框標題樣式 */
+  .float-block-2 h3 {
+      margin-top: 10px;
+  }
+  .float-block-2 h5 {
+    margin: 10px;
 }
-ul.slides{
-  position:relative;
-  width:calc(100vw* 990 / 1920);
-  height: calc(100vw* 445 / 1920);
-  list-style: none;
-  margin:30px;
-  padding:0;
-  overflow:hidden;
-  margin-bottom: -5%;
-}
+  
+  a.btn-setting-more {
+      float: right;
+  }
+  
+  /* 行動版調整 */
+  @media screen and (max-width: 768px) {
+    .specials{
+      padding-top: 0;
+    }
+      .float-block-2 {
+        position: static; /* 取消浮動樣式，直接按文檔流排列 */
+        width: 85%; /* 調整寬度適應小螢幕 */
+         /* 上下留白，並水平置中 */
+        margin: 10px auto;
+        padding: 20px; /* 縮小內邊距，適合小螢幕 */
+        background-color: transparent;
+        box-shadow: none;
+        color: white;
+        min-width: calc(100vw* 500 / 768);
 
-li.slide{
-  margin:0;
-  padding:0;
-  width:inherit;
-  height:inherit;
-  position:absolute;
-  top:0;
-  left:0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: .5s ;
-}
-.slide:nth-of-type(1){
-  left:0%;
-}
-.slide:nth-of-type(2){
-  left:100%;
-}
-input[type="radio"]{
-  position:relative;
-  z-index:100;
-  display: none;
-}
-.controls-visible{
-  position:absolute;
-  width:100%;
-  bottom:12px;
-  text-align:center;
-}
-.controls-visible label{
-  display: inline-block;
-  width:80px;
-  height:8px;
-  /* background-color: #ffffff; */
-  background-color:rgba(255, 255, 255, 30%);
-  border-radius: 10px;
-  /* margin:0 30px; */
-  margin:0;
-  /* border:2px solid #ffffff; */
-  border:2px solid rgba(255, 255, 255, 30%);
-}
-.slides input[type="radio"]:nth-of-type(1):checked~
-.controls-visible label:nth-of-type(1){
-  background-color: rgba(4, 23, 42, 50%);
-}
-.slides input[type="radio"]:nth-of-type(2):checked~
-.controls-visible label:nth-of-type(2){
-  background-color: rgba(4, 23, 42, 50%);
-}
+        transform: translateX(0);
+      }
+      .float-block-2 h5 {
+        margin: 0;
+        margin-top: 15px;
+    }
+  }
 
-.slides input[type="radio"]:nth-of-type(1):checked~.slide{
-  transform: translateX(0%);
-}
-.slides input[type="radio"]:nth-of-type(2):checked~.slide{
-  transform: translateX(-100%);
-}
-.pp{
-  border-radius: 18px;
-}
-.p2p2{
-  border-radius: 18px;
-}
-/* 輪播結束 */
+
 
 /* ------------------------- *\ 
     reservation 訂位連結區
@@ -1580,4 +1750,72 @@ footer {
 .navbar:not(.hidden) {
   transform: translateY(0); /* 回到原始位置 */
   transition: transform 0.3s ease-in-out;
+}
+
+/* ------------------------- *\ 
+    loading 加載畫面
+\* ------------------------- */
+.pageLoading {
+  overflow: hidden;
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1D2B49;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s 0.5s;
+}
+.loading-logo{
+  position: relative; /* 確保跟隨父容器定位 */
+  width: 128px;
+  height: 128px;
+
+  display: inline-block;
+  animation: spin 2.1s linear infinite; 
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.pageLoading.complete {
+  opacity: 0;
+  visibility: hidden; 
+  /* transition: opacity 0.5s ease;  */
+}
+.pageLoading.complete .loading-logo {
+  /* transform: scale(0.01) rotate(360deg); */
+  animation: rotateAndScale 0.5s ease-in-out forwards;
+}
+@keyframes rotateAndScale {
+  0% {
+    transform: scale(1) rotate(0deg); /* 原始大小，旋轉角度 0 */
+  }
+  100% {
+    transform: scale(0.01) rotate(360deg); /* 縮小並旋轉一圈 */
+  }
+}
+
+.loading {
+  padding: 2px;
+  width: 200px;
+  height: 10px;
+  background-color: #ffffff;
+  margin-top: 80px;
+  border-radius: 5px;
+
+}
+.loading .bar {
+  background-color: #f0dc43;
+  width: 0%;
+  height: 100%;
 }

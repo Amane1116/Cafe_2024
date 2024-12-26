@@ -10,6 +10,12 @@
     </title>
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/home.css">
+    <!-- jq -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <!-- Mapbox 樣式和腳本 -->
     <link href="https://api.maptiler.com/maps/a5ced2d4-f6d8-428c-9901-63ac4aa39517/style.json?key=ye1ci2MEfMPvklLaBJeM" type="text/css" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
@@ -50,6 +56,46 @@
                 <li class="nav-item"><a href="HTML/info.html" class="nav-text">關於我們</a>
                 </li>
             </ul>
+
+            <!-- 漢堡選單 start-->
+            <input id="nav-toggle" type="checkbox">
+                <label for="nav-toggle" class="ham">
+                    <div class="ham-origin">
+                        <div class="ham-bar ham-bar--top"></div>
+                        <div class="ham-bar ham-bar--middle"></div>
+                        <div class="ham-bar ham-bar--bottom"></div>
+                    </div>
+                </label>
+
+                <div class="menu">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <a href="#" id="backToTopBtn" class="footer-text">首頁</a>
+                            <!-- <script src="JS/back-to-top.js"></script> -->
+                        </li>
+                        <li class="menu-item">
+                            <a href="HTML/menu.html" class="footer-text">菜單</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="HTML/reservation.html" class="footer-text">訂位</a>
+                        </li>
+                        <li class="menu-item"><a href="HTML/info.html" class="footer-text">關於我們</a>
+                        </li>
+                    </ul>
+                    <div class="icons">
+                        <a href="https://www.facebook.com/">
+                            <img class="icon-item-fb" src="images/fb.svg" alt="fb" >
+                        </a>
+                        <a href="https://www.instagram.com/">
+                            <img class="icon-item" src="images/ins.svg" alt="ig" >
+                        </a>
+                        <a href="mailto:example@example.com">
+                            <img class="icon-item" src="images/mail.svg" alt="mail" >
+                        </a>
+                    </div>
+                </div>
+            </input>
+            <!-- 漢堡選單 end-->
         </div>
     </header>
     <!-- end navbar-->
@@ -124,7 +170,7 @@
     <!-- 小建議:可以將about~specials的內容放置在一個container裡面，方便調整區塊大小又不會動到背景 -->
     <div class="about-specials">
         <!-- About -->
-        <div class="about">
+        <div class="about" id="about">
             <!-- title -->
             <div class="title-template">
                 <h6 class="title-s">ABOUT</h6>
@@ -142,23 +188,24 @@
             <!-- end title -->
 
             <!-- picture -->
-            <img class="about-img" src="images/home_about-v3.png " alt="about" width="" height="">
-            
-
-            <!-- 重疊漂浮框-1 -->
-            <div class="float-block-1">
-                <!-- picture info --> 
-                    <div>       
-                        <h3>歡迎......</h3>
-                        <h6>　在這個繁忙的世界中，眠貓咖啡屋是您尋找片刻寧靜的最佳去處。
-                            透過窗戶，您可以看到月光灑落在店外的小露臺，星空與咖啡香交織成一幅美麗的畫面。
-                            每杯咖啡都精心手工沖煮，讓您在忙碌的生活中找到心靈的慰藉。
-                            這裡還有各式美味的甜點，完美搭配您的咖啡時光。</h6>
-                    </div>
-            </div>                
+            <div class="about-intro">
+                <img class="about-img" src="images/home_about-v3.png " alt="about" width="" height="">
+                <!-- 重疊漂浮框-1 -->
+                <div class="float-block-1">
+                    <!-- picture info --> 
+                        <div>       
+                            <h3>歡迎......</h3>
+                            <h6>　在這個繁忙的世界中，眠貓咖啡屋是您尋找片刻寧靜的最佳去處。
+                                透過窗戶，您可以看到月光灑落在店外的小露臺，星空與咖啡香交織成一幅美麗的畫面。
+                                每杯咖啡都精心手工沖煮，讓您在忙碌的生活中找到心靈的慰藉。
+                                這裡還有各式美味的甜點，完美搭配您的咖啡時光。</h6>
+                        </div>
+                </div>
+            </div>
         </div>
 
         <!-- Specials -->
+        <script src="/JS/Carousel.js"></script>
         <div class="specials">
             <!-- title -->
             <div class="title-template">
@@ -171,35 +218,27 @@
                 </div>
                 <!-- stars & lines -->
                 <div class="stars_lines">
-                    <img src="images/star-w.svg" alt="star_white" class="center-image">
+                    <img src="./images/star-w.svg" alt="star_white" class="center-image">
                 </div>
             </div>
             <!-- end title -->
-            <!-- 輪播 -->
-            <ul class="slides">
-                <input type="radio" id="control-1" name="control" checked>
-                <input type="radio" id="control-2" name="control">
-    
-                <li class="slide"><img src="images/pp.png" alt="pp" class="pp"/></li>
-                <li class="slide"><img src="images/p2p2.png" alt="p2p2" class="p2p2"/></li>
-    
-                <div class="controls-visible">
-                    <label for="control-1"></label>
-                    <label for="control-2"></label>
-                </div>
-            </ul>
-            <!-- 重疊漂浮框 -->
-            <div class="float-block-2">
-                <!-- picture info --> 
-                    <div>       
-                        <h3>月光鬆餅</h3>
-                        <h4>季節限定菜單，蓬鬆的鬆餅配上甜美的果醬 <br>
-                            (果醬可選 藍莓/莓果/檸檬)</h4>
-                        <a href="HTML/menu.html" class="btn-setting-more btn-more btn-moresize">了解更多</a>
 
+            <!-- 介紹內容 -->
+
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-items"><img src="images/menu_peach_home.jpg" alt=""></div>
+                        <div class="carousel-items"><img src="images/menu_cocoa_home.jpg" alt=""></div>                                    
                     </div>
-            </div>
-
+                    <div class="float-block-2">
+                        <div>
+                            <h3>本季菜單</h3>
+                            <h5>每季更換不同菜單，歡迎您來嘗鮮。</h5>
+                            <a href="HTML/menu.html" class="btn-setting-more btn-more btn-moresize">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            
         </div>
     </div>
     
@@ -273,7 +312,7 @@
     <!-- end map-->
 
     <!--start footer -->
-    <script src="JS/home.js"></script>
+    <script src="/JS/home.js"></script>
     <footer>
         <!-- 左側區域 -->
         <div class="footer-left">
@@ -311,6 +350,17 @@
         </div>
     </footer>
     <!-- end footer-->
+
+    <!-- start loading -->
+    <div class="pageLoading" >
+        <div class="loading-logo">
+            <img class="nightimg" src="images/logo w.png" alt="logo">
+        </div>
+        <div class="loading">
+            <div class="bar"></div>
+        </div>
+    </div>
+    <script src="JS/loading.js"></script>
 </body>
 
 </html>
