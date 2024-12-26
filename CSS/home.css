@@ -983,7 +983,16 @@ input:checked + .scene .dayimg {
     height: 100%;
     /* z-index: 99; */
 }
+.aos {
+  opacity: 0;
+  /* transform: translateY(1em); */
+  transition: opacity 1s;
+}
 
+.aos.ed {
+  opacity: 1;
+  /* transform: translateY(0em); */
+}
 
 /* ------------------------- *\ 
     button 按鈕設定
@@ -1514,7 +1523,7 @@ font-size: calc(100vw* 24 / 1920);
 
     padding-top: calc(100vw* 160 / 1920);
     padding-bottom: calc(100vw* 160 / 1920);
-    gap: 3.2em;
+    gap: 1.6em;
 }
 .reservation > *:not(.mask-dark) {
     position: relative;

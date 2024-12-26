@@ -17,11 +17,12 @@
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <!-- Mapbox 樣式和腳本 -->
-    <link href="https://api.maptiler.com/maps/a5ced2d4-f6d8-428c-9901-63ac4aa39517/style.json?key=ye1ci2MEfMPvklLaBJeM" type="text/css" rel="stylesheet">
+    <!-- <link href="https://api.maptiler.com/maps/a5ced2d4-f6d8-428c-9901-63ac4aa39517/style.json?key=ye1ci2MEfMPvklLaBJeM" type="text/css" rel="stylesheet"> -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     
     <!-- 一些js -->
     <script src="JS/Carousel.js"></script>
+    <script src="JS/aos.js"></script>
 
     <style>
         /* #map {
@@ -174,9 +175,9 @@
     <!-- 小建議:可以將about~specials的內容放置在一個container裡面，方便調整區塊大小又不會動到背景 -->
     <div class="about-specials">
         <!-- About -->
-        <div class="about" id="about">
+        <div class="about aos" id="about">
             <!-- title -->
-            <div class="title-template">
+            <div class="title-template aos">
                 <h6 class="title-s">ABOUT</h6>
                 <div class="container-headline-content">
                     <span class="common-headline-content__title">關</span>
@@ -193,9 +194,9 @@
 
             <!-- picture -->
             <div class="about-intro">
-                <img class="about-img" src="images/home_about-v3.png " alt="about" width="" height="">
+                <img class="about-img aos" src="images/home_about-v3.png " alt="about" width="" height="">
                 <!-- 重疊漂浮框-1 -->
-                <div class="float-block-1">
+                <div class="float-block-1 aos">
                     <!-- picture info --> 
                         <div>       
                             <h3>歡迎......</h3>
@@ -211,7 +212,7 @@
         <!-- Specials -->
         <div class="specials">
             <!-- title -->
-            <div class="title-template">
+            <div class="title-template aos">
                 <h6 class="title-s">SPECIALS</h6>
                 <div class="container-headline-content">
                     <span class="common-headline-content__title">特</span>
@@ -229,11 +230,11 @@
             <!-- 介紹內容 -->
 
                 <div class="carousel-container">
-                    <div class="carousel">
+                    <div class="carousel aos">
                         <div class="carousel-items"><img src="images/menu_peach_home.jpg" alt=""></div>
                         <div class="carousel-items"><img src="images/menu_cocoa_home.jpg" alt=""></div>                                    
                     </div>
-                    <div class="float-block-2">
+                    <div class="float-block-2 aos">
                         <div>
                             <h3>本季菜單</h3>
                             <h5>每季更換不同菜單，歡迎您來嘗鮮。</h5>
@@ -251,7 +252,7 @@
         <div class="mask-dark"></div>
     
         <!-- title -->
-        <div class="title-template">
+        <div class="title-template aos">
             <h6 class="title-s">RESERVATION</h6>
             <div class="container-headline-content">
                 <span class="common-headline-content__title">訂</span>
@@ -265,17 +266,18 @@
         <!-- end title -->
     
         <!-- 等待光臨 -->
-        <h3>我們誠摯的等待您的光臨</h3>
+        <h3 class="aos">我們誠摯的等待您的光臨</h3>
+        <h6 class="aos">營業時間：10:30 AM - 10:30 PM，週五與節假日公休</h6>
     
         <!-- button -->
-        <a href="HTML/reservation.html" class="btn btn-primary btn-lg">我要訂位</a>
+        <a href="HTML/reservation.html" class="btn btn-primary btn-lg aos">我要訂位</a>
     </div>
     <!-- end reservation-->
     
     <!-- Map -->
     <div class="map">
         <!-- title -->
-        <div class="title-template">
+        <div class="title-template aos">
             <h6 class="title-s">MAP</h6>
             <div class="container-headline-content">
                 <span class="common-headline-content__title">門</span>
@@ -293,7 +295,7 @@
         <div class="contactngoogle">
             <!-- 左邊文字 -->
             <!-- 字&線 -->
-            <div class="contact-text">
+            <div class="contact-text aos">
                 <h4>連絡電話</h4>
                 <hr>
                 <h5>0912-345-678</h5>
@@ -307,7 +309,7 @@
                 <h5>上午10:00至下午9:30，周五公休</h5>
             </div>
             <!-- google map -->
-            <div id="map" class="googlemap"></div>
+            <div id="map" class="googlemap aos"></div>
                 <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>  
                 <script src="JS/map.js"></script>
         </div>
