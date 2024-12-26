@@ -879,12 +879,12 @@ input:checked + .scene .dayimg {
 }
 
 .small-headline{
-  font-size: calc(100vw * 24 / 1920);
+  font-size: calc(100vw * 26 / 1920);
   color: rgb(176, 176, 176);
 }
 @media screen and (max-width: 768px) {
 .small-headline {
-  font-size: clamp(12px,calc(var(--cont-resp-w) * 18 / 414), 28px);
+  font-size: clamp(12px,calc(var(--cont-resp-w) * 17 / 414), 28px);
 }
 }
 /* RWD-end */
@@ -896,7 +896,7 @@ input:checked + .scene .dayimg {
     content: "";
   } */
 
-.cafe-house{
+  .cafe-house {
     z-index: 99;
     position: absolute; /* 讓圖片可以進行絕對定位 */
     bottom: 0; /* 貼於容器底部 */
@@ -905,7 +905,13 @@ input:checked + .scene .dayimg {
     width: auto; /* 確保寬高比例不變 */
     height: 50%; /* 根據容器高度調整圖片大小 */
     object-fit: cover; /* 確保圖片填滿容器，並裁剪超出部分 */
-}
+  }
+  @media screen and (min-width: 768px) {
+    .cafe-house{
+        display: none;
+    }
+      }
+  
 .mv__scroll {
     position: absolute;
     right: calc(100vw * 40 / 1920);
@@ -967,6 +973,15 @@ input:checked + .scene .dayimg {
 .common-headline__title:nth-child(11) {
   -webkit-transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) calc(11 * 0.06s);
   transition: 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) calc(11 * 0.06s);
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(10px); /* 向下移動 10px */
+  }
 }
 
 /* ------------------------- *\ 
