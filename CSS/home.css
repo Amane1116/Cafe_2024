@@ -1587,7 +1587,7 @@ font-size: calc(100vw* 24 / 1920);
   .contact-text{
     display: flex;
     flex-direction: column;
-    margin: 0%;
+    margin: 0 auto;
     width: 80%;
     justify-self: center;
     padding-bottom: 40px;
@@ -1596,7 +1596,8 @@ font-size: calc(100vw* 24 / 1920);
 @media screen and (max-width: 768px){
   .contact-text hr{
     box-sizing: border-box;
-    margin: 0%;
+    margin: 0;
+    /* margin-left: 50px; */
   }
   .star_white{
     width: 80%;
